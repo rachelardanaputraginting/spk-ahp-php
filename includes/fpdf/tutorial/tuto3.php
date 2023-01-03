@@ -53,7 +53,7 @@ function ChapterBody($file)
 	// Read text file
 	$txt = file_get_contents($file);
 	// Times 12
-	$this->SetFont('Times','',12);
+	$this->SetFont('Times','B',12);
 	// Output justified text
 	$this->MultiCell(0,5,$txt);
 	// Line break
@@ -78,4 +78,3 @@ $pdf->SetAuthor('Jules Verne');
 $pdf->PrintChapter(1,'A RUNAWAY REEF','20k_c1.txt');
 $pdf->PrintChapter(2,'THE PROS AND CONS','20k_c2.txt');
 $pdf->Output();
-?>

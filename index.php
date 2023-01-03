@@ -1,118 +1,104 @@
-<?php
-include_once 'header.php';
-include_once 'includes/nilai.inc.php';
-$pro3 = new Nilai($db);
-$stmt3 = $pro3->readAll();
-include_once 'includes/alternatif.inc.php';
-$pro1 = new Alternatif($db);
-$stmt1 = $pro1->readAll();
-$stmt4 = $pro1->readAll();
-include_once 'includes/kriteria.inc.php';
-$pro2 = new Kriteria($db);
-$stmt2 = $pro2->readAll();
-?>
-<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-		<div class="row">
-		  <div class="col-xs-12 col-sm-12 col-md-4">
-		  	<div class="page-header">
-			  <h5>Nilai Preferensi</h5>
-			</div>
-			<div class="panel panel-default">
-			  <div class="panel-body">
-			    <ol>
-			    	<?php
-					while ($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)){
-					?>
-				  	<li><?php echo $row3['ket_nilai'] ?> (<?php echo $row3['jum_nilai'] ?>)</li>
-				  	<?php
-					}
-				  	?>
-				</ol>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col-xs-12 col-sm-12 col-md-4">
-		  	<div class="page-header">
-			  <h5>Kriteria-Kriteria</h5>
-			</div>
-			<div class="panel panel-default">
-			  <div class="panel-body">
-			    <ol class="list-unstyled">
-			    	<?php
-					while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
-					?>
-				  	<li>(<?php echo $row2['id_kriteria'] ?>) <?php echo $row2['nama_kriteria'] ?></li>
-				  	<?php
-					}
-				  	?>
-				</ol>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col-xs-12 col-sm-12 col-md-4">
-		  	<div class="page-header">
-			  <h5>Alternatif Produk</h5>
-			</div>
-			<div class="panel panel-default">
-			  <div class="panel-body">
-			    <ol class="list-unstyled">
-			    	<?php
-					while ($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)){
-					?>
-				  	<li>(<?php echo $row1['id_alternatif'] ?>) <?php echo $row1['nama_alternatif'] ?></li>
-				  	<?php
-					}
-				  	?>
-				</ol>
-			  </div>
-			</div>
-		  </div>
-		</div>
-		
-		
-		<footer class="text-center">&copy; Kelompok 1 Sistem Informasi ~ Tugas SPK AHP</footer>
-	</div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/highcharts.js"></script>
-	<script src="js/exporting.js"></script>
-	<script>
-	var chart1; // globally available
-	$(document).ready(function() {
-	      chart1 = new Highcharts.Chart({
-	         chart: {
-	            renderTo: 'container2',
-	            type: 'column'
-	         },  
-	         title: {
-	            text: 'Grafik Perangkingan '
-	         },
-	         xAxis: {
-	            categories: ['Alternatif']
-	         },
-	         yAxis: {
-	            title: {
-	               text: 'Jumlah Nilai'
-	            }
-	         },
-	              series:            
-	            [
-	            <?php
-	            while ($row4 = $stmt4->fetch(PDO::FETCH_ASSOC)){
-	                  ?>
-	                 //data yang diambil dari database dimasukan ke variable nama dan data
-	                 //
-	                  {
-	                      name: '<?php echo $row4['nama_alternatif'] ?>',
-	                      data: [<?php echo $row4['hasil_akhir'] ?>]
-	                  },
-	                  <?php } ?>
-	            ]
-	      });
-	   });  
-	   </script>
-	</body>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sistem Pendukung keputusan</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('images/bg/bg.png') !important;
+            background-size: cover;
+        }
+
+        .navbar-toggler {
+            z-index: 1;
+        }
+
+        .navbar-brand {
+            font-weight: 500 !important;
+            color: #0A9343 !important;
+        }
+
+        .hero {
+            margin-top: 180px;
+        }
+
+        .button:hover {
+            background-color: #E3A413;
+            border: #E3A413 !important;
+            box-shadow: 2px 2px rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            background-color: #0A9343;
+        }
+
+        footer p {
+            color: white;
+            font-size: 14px;
+        }
+
+        @media (max-width: 576px) {
+            nav>.container {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+    <!-- Navigation -->
+    <?php
+    include 'navbar.php';
+    ?>
+    <header class="masthead">
+        <div class="container">
+            <div class="row hero">
+                <div class="col-md-12 text-center">
+                    <h1 class="text-white fw-light">Mengukur Tingkat Kesadaran Pengguna Smartphone di <br> Kampus <span class="fw-bold"> Unimal </span> Dengan Menggunakan Perbandingan Metode <span class="fw-bold"> Ahp </span> dan <span class="fw-bold"> Fuzzy </span></h1>
+                    <a href="main.php" class="button btn border p-2 px-5 py-2 mt-4 fs-5 text-white">Mulai!</a>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <footer>
+        <div class="container fixed-bottom">
+            <p class="text-center">&copy; Universitas Malikussaleh 2022.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+    <script src="js/login.js"></script>
+
+
+</body>
+
 </html>
