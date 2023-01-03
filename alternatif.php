@@ -5,8 +5,14 @@ $pro = new Alternatif($db);
 $stmt = $pro->readAll();
 ?>
 <div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb" style="background: transparent; padding:0px;">
+            <li><a href="main.php" style="color: #333;">Home</a></li>
+            <li class="text-success" style="font-weight: bold;">Data Alternatif</li>
+        </ol>
+    </div>
     <div class="col-md-6 text-left">
-        <h4>Data Alternatif</h4>
+        <h5>Data Alternatif</h5>
     </div>
     <div class="col-md-6 text-right">
         <button onclick="location.href='alternatif-baru.php'" class="btn btn-success">Tambah Data</button>

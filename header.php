@@ -89,7 +89,7 @@ $db = $config->getConnection();
                     <li><a href="analisa-kriteria.php">Analisa Kriteria</a></li>
                     <li><a href="analisa-alternatif.php">Analisa Alternatif</a></li>
                     <li><a href="rangking.php">Rangking</a></li>
-                    <li><a href="laporan-cetak.php">Laporan</a></li>
+                    <!-- <li><a href="laporan-cetak.php">Laporan</a></li> -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="profil.php"><?php echo $_SESSION['nama_lengkap'] ?></a></li>

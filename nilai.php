@@ -7,8 +7,8 @@ $stmt = $pro->readAll();
 <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb" style="background: transparent; padding:0px;">
-            <li><a href="#" style="color: #333;">Home</a></li>
-            <li class="text-success" style="font-weight: bold;">Data</li>
+            <li><a href="main.php" style="color: #333;">Home</a></li>
+            <li class="text-success" style="font-weight: bold;">Data Nilai</li>
         </ol>
     </div>
     <div class="col-md-6 text-left">

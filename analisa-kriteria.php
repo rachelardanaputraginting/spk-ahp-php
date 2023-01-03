@@ -5,43 +5,16 @@ $pro1 = new Kriteria($db);
 $count1 = $pro1->countAll();
 include_once 'includes/nilai.inc.php';
 $pro2 = new Nilai($db);
-/*if($_POST){
-
-	include_once 'includes/bobot.inc.php';
-	$eks = new Bobot($db);
-
-	$eks->nm = $_POST['nm'];
-
-	if($eks->insert()){
-?>
-<script type="text/javascript">
-window.onload=function(){
-	showStickySuccessToast();
-};
-</script>
-<?php
-	}
-
-	else{
-?>
-<script type="text/javascript">
-window.onload=function(){
-	showStickyErrorToast();
-};
-</script>
-<?php
-	}
-}*/
 ?>
 <div class="row">
     <div class="col-md-12">
         <ol class="breadcrumb" style="background: transparent; padding:0px;">
-            <li><a href="#" style="color: #333;">Home</a></li>
+            <li><a href="main.php" style="color: #333;">Home</a></li>
             <li class="text-success" style="font-weight: bold;">Analisa Kriteria</li>
         </ol>
     </div>
     <div class="col-md-6 text-left">
-        <h5>Data Nilai Preferensi</h5>
+        <h5>Analisa Kriteria</h5>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="panel panel-default">
@@ -51,17 +24,20 @@ window.onload=function(){
                     <div class="row">
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
-                                <label>Kriteria Pertama</label>
+                                <h5>Kriteria Pertama</h5>
+                                <hr>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
-                                <label>Pernilaian</label>
+                                <h5>Pernilaian</h5>
+                                <hr>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
-                                <label>Kriteria Kedua</label>
+                                <h5>Kriteria Kedua</h5>
+                                <hr>
                             </div>
                         </div>
                     </div>

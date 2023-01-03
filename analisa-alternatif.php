@@ -7,53 +7,28 @@ include_once 'includes/kriteria.inc.php';
 $pro3 = new Kriteria($db);
 include_once 'includes/nilai.inc.php';
 $pro2 = new Nilai($db);
-/*if($_POST){
-
-	include_once 'includes/bobot.inc.php';
-	$eks = new Bobot($db);
-
-	$eks->nm = $_POST['nm'];
-
-	if($eks->insert()){
-?>
-<script type="text/javascript">
-window.onload=function(){
-	showStickySuccessToast();
-};
-</script>
-<?php
-	}
-
-	else{
-?>
-<script type="text/javascript">
-window.onload=function(){
-	showStickyErrorToast();
-};
-</script>
-<?php
-	}
-}*/
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-2">
-        <?php
-        include_once 'sidebar.php';
-        ?>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-10">
-        <ol class="breadcrumb">
-            <li><a href="index.php"><span class="fa fa-home"></span> Beranda</a></li>
-            <li class="active"><span class="fa fa-balance-scale"></span> Analisa Alternatif</li>
-            <li><a href="#" data-toggle="modal" data-target="#myModalalt"><span class="fa fa-table"></span> Tabel Analisa Alternatif</a></li>
+
+    <div class="col-md-12">
+        <ol class="breadcrumb" style="background: transparent; padding:0px;">
+            <li><a href="main.php" style="color: #333;">Home</a></li>
+            <li class="text-success" style="font-weight: bold;">Analisa Alternatif</li>
         </ol>
+    </div>
+    <div class="col-md-6 text-left">
+        <h5>Analisa Alternatif</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <!-- Modal -->
         <div class="modal fade" id="myModalalt" tabindex="-1" role="dialog" aria-labelledby="myModalLabelalt">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog" ;" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabelalt">Pilih Kriteria</h4>
+                        <h4 class="modal-title" id="myModalLabelalt"> Pilih Kriteria</h4>
                     </div>
                     <div class="modal-body">
                         <div class="list-group">
@@ -70,17 +45,15 @@ window.onload=function(){
                 </div>
             </div>
         </div>
-        <p style="margin-bottom:10px;">
-            <strong style="font-size:18pt;"><span class="fa fa-bomb"></span> Analisa Alternatif</strong>
-        </p>
         <div class="panel panel-default">
             <div class="panel-body">
-
                 <form method="post" action="analisa-alternatif-tabel.php">
                     <div class="row">
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
-                                <p style="padding:10px 0;"><label>Pilih Kriteria</label></p>
+                                <p style="padding:10px 0;">
+                                <h5>Pilih Kriteria</h5>
+                                </p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-9">
@@ -101,17 +74,20 @@ window.onload=function(){
                     <div class="row">
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
-                                <label>Kriteria Pertama</label>
+                                <h5>Kriteria Pertama</h5>
+                                <hr>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
-                                <label>Pernilaian</label>
+                                <h5>Pernilaian</h5>
+                                <hr>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-3">
                             <div class="form-group">
-                                <label>Kriteria Kedua</label>
+                                <h5>Kriteria Kedua</h5>
+                                <hr>
                             </div>
                         </div>
                     </div>
